@@ -18,10 +18,14 @@ public class Mascota {
     @Column(name="nombre")
     private String nombre;
 
-    @Column(name = "id_raza")
-    private Integer idRaza;
 
-    @Column(name = "id_dueno")
-    private Integer idDueno;
+    @ManyToOne
+    @JoinColumn(name = "id_raza")
+    private Raza raza;
+
+
+    @ManyToOne
+    @JoinColumn(name = "id_dueno")
+    private Dueno dueno;
 
 }
