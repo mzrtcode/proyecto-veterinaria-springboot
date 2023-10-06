@@ -1,8 +1,11 @@
 package com.aeditip.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "dueno")
@@ -25,6 +28,10 @@ public class Dueno {
     @Column(name = "direccion")
     private String direccion;
 
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "dueno", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Mascota> mascotas;
 
 
 
